@@ -1,55 +1,72 @@
 'use strict';
 
-var _get = require('babel-runtime/helpers/get')['default'];
-
-var _inherits = require('babel-runtime/helpers/inherits')['default'];
-
-var _createClass = require('babel-runtime/helpers/create-class')['default'];
-
-var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
-
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
-
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _events = require('events');
 
 var _events2 = _interopRequireDefault(_events);
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 /**
  * Abstract class to extend to create new sources of interactions.
  * A `Surface` and `Keyboard` event sources are provided.
  */
-
-var EventSource = (function (_events$EventEmitter) {
-  _inherits(EventSource, _events$EventEmitter);
+var EventSource = function (_events$EventEmitter) {
+  (0, _inherits3.default)(EventSource, _events$EventEmitter);
 
   function EventSource($el) {
-    _classCallCheck(this, EventSource);
+    (0, _classCallCheck3.default)(this, EventSource);
 
-    _get(Object.getPrototypeOf(EventSource.prototype), 'constructor', this).call(this);
     /**
      * The element on which the listener is added
      * @type {Element}
      */
-    this.$el = $el;
+    var _this = (0, _possibleConstructorReturn3.default)(this, (EventSource.__proto__ || (0, _getPrototypeOf2.default)(EventSource)).call(this));
 
-    this._bindEvents();
+    _this.$el = $el;
+    return _this;
   }
 
-  _createClass(EventSource, [{
-    key: '_createEvent',
-    value: function _createEvent(type, e) {}
+  (0, _createClass3.default)(EventSource, [{
+    key: 'destroy',
+    value: function destroy() {
+      this.unbindEvents();
+    }
   }, {
-    key: '_bindEvents',
-    value: function _bindEvents() {}
+    key: 'createEvent',
+    value: function createEvent(type, e) {}
+  }, {
+    key: 'bindEvents',
+    value: function bindEvents() {}
+  }, {
+    key: 'unbindEvents',
+    value: function unbindEvents() {}
   }]);
-
   return EventSource;
-})(_events2['default'].EventEmitter);
+}(_events2.default.EventEmitter);
 
-exports['default'] = EventSource;
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9pbnRlcmFjdGlvbnMvZXZlbnQtc291cmNlLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7c0JBQW1CLFFBQVE7Ozs7Ozs7OztJQU9OLFdBQVc7WUFBWCxXQUFXOztBQUNuQixXQURRLFdBQVcsQ0FDbEIsR0FBRyxFQUFFOzBCQURFLFdBQVc7O0FBRTVCLCtCQUZpQixXQUFXLDZDQUVwQjs7Ozs7QUFLUixRQUFJLENBQUMsR0FBRyxHQUFHLEdBQUcsQ0FBQzs7QUFFZixRQUFJLENBQUMsV0FBVyxFQUFFLENBQUM7R0FDcEI7O2VBVmtCLFdBQVc7O1dBWWxCLHNCQUFDLElBQUksRUFBRSxDQUFDLEVBQUUsRUFBRTs7O1dBRWIsdUJBQUcsRUFBRTs7O1NBZEcsV0FBVztHQUFTLG9CQUFPLFlBQVk7O3FCQUF2QyxXQUFXIiwiZmlsZSI6InNyYy9pbnRlcmFjdGlvbnMvZXZlbnQtc291cmNlLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGV2ZW50cyBmcm9tICdldmVudHMnO1xuXG5cbi8qKlxuICogQWJzdHJhY3QgY2xhc3MgdG8gZXh0ZW5kIHRvIGNyZWF0ZSBuZXcgc291cmNlcyBvZiBpbnRlcmFjdGlvbnMuXG4gKiBBIGBTdXJmYWNlYCBhbmQgYEtleWJvYXJkYCBldmVudCBzb3VyY2VzIGFyZSBwcm92aWRlZC5cbiAqL1xuZXhwb3J0IGRlZmF1bHQgY2xhc3MgRXZlbnRTb3VyY2UgZXh0ZW5kcyBldmVudHMuRXZlbnRFbWl0dGVyIHtcbiAgY29uc3RydWN0b3IoJGVsKSB7XG4gICAgc3VwZXIoKTtcbiAgICAvKipcbiAgICAgKiBUaGUgZWxlbWVudCBvbiB3aGljaCB0aGUgbGlzdGVuZXIgaXMgYWRkZWRcbiAgICAgKiBAdHlwZSB7RWxlbWVudH1cbiAgICAgKi9cbiAgICB0aGlzLiRlbCA9ICRlbDtcblxuICAgIHRoaXMuX2JpbmRFdmVudHMoKTtcbiAgfVxuXG4gIF9jcmVhdGVFdmVudCh0eXBlLCBlKSB7fVxuXG4gIF9iaW5kRXZlbnRzKCkge31cbn1cbiJdfQ==
+exports.default = EventSource;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImV2ZW50LXNvdXJjZS5qcyJdLCJuYW1lcyI6WyJFdmVudFNvdXJjZSIsIiRlbCIsInVuYmluZEV2ZW50cyIsInR5cGUiLCJlIiwiRXZlbnRFbWl0dGVyIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBOzs7Ozs7QUFHQTs7OztJQUlxQkEsVzs7O0FBQ25CLHVCQUFZQyxHQUFaLEVBQWlCO0FBQUE7O0FBRWY7Ozs7QUFGZTs7QUFNZixVQUFLQSxHQUFMLEdBQVdBLEdBQVg7QUFOZTtBQU9oQjs7Ozs4QkFFUztBQUNSLFdBQUtDLFlBQUw7QUFDRDs7O2dDQUVXQyxJLEVBQU1DLEMsRUFBRyxDQUFFOzs7aUNBRVYsQ0FBRTs7O21DQUVBLENBQUU7OztFQWxCc0IsaUJBQU9DLFk7O2tCQUEzQkwsVyIsImZpbGUiOiJldmVudC1zb3VyY2UuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgZXZlbnRzIGZyb20gJ2V2ZW50cyc7XG5cblxuLyoqXG4gKiBBYnN0cmFjdCBjbGFzcyB0byBleHRlbmQgdG8gY3JlYXRlIG5ldyBzb3VyY2VzIG9mIGludGVyYWN0aW9ucy5cbiAqIEEgYFN1cmZhY2VgIGFuZCBgS2V5Ym9hcmRgIGV2ZW50IHNvdXJjZXMgYXJlIHByb3ZpZGVkLlxuICovXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBFdmVudFNvdXJjZSBleHRlbmRzIGV2ZW50cy5FdmVudEVtaXR0ZXIge1xuICBjb25zdHJ1Y3RvcigkZWwpIHtcbiAgICBzdXBlcigpO1xuICAgIC8qKlxuICAgICAqIFRoZSBlbGVtZW50IG9uIHdoaWNoIHRoZSBsaXN0ZW5lciBpcyBhZGRlZFxuICAgICAqIEB0eXBlIHtFbGVtZW50fVxuICAgICAqL1xuICAgIHRoaXMuJGVsID0gJGVsO1xuICB9XG5cbiAgZGVzdHJveSgpwqB7XG4gICAgdGhpcy51bmJpbmRFdmVudHMoKTtcbiAgfVxuXG4gIGNyZWF0ZUV2ZW50KHR5cGUsIGUpIHt9XG5cbiAgYmluZEV2ZW50cygpIHt9XG5cbiAgdW5iaW5kRXZlbnRzKCkge31cbn1cbiJdfQ==

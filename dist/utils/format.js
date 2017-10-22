@@ -1,26 +1,21 @@
-/**
- * Formatting helpers functions.
- */
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports['default'] = {
-  /**
-   * Add a `sign` to the left of a given `input` to match `length`
-   *
-   * @param {String} input - The string to format.
-   * @param {String} sign - The character to add to the left.
-   * @param {Number} length - The length of the output string.
-   */
-  padLeft: function padLeft(input, sign, length) {
-    input += '';
-    while (input.length < length) {
-      input = sign + input;
-    }
-    return input;
-  }
+
+/**
+ * Add `sign` to the left of a given `input` until it matches match `length`
+ *
+ * @param {String} input - String to format
+ * @param {String} sign - Character to add to the left
+ * @param {Number} length - Length of the output string
+ */
+var padLeft = exports.padLeft = function padLeft(input, sign, length) {
+  input += ''; // make sure we deal with a string
+
+  while (input.length < length) {
+    input = sign + input;
+  }return input;
 };
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy91dGlscy9mb3JtYXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7cUJBR2U7Ozs7Ozs7O0FBUWIsU0FBTyxFQUFBLGlCQUFDLEtBQUssRUFBRSxJQUFJLEVBQUUsTUFBTSxFQUFFO0FBQzNCLFNBQUssSUFBSSxFQUFFLENBQUM7QUFDWixXQUFPLEtBQUssQ0FBQyxNQUFNLEdBQUcsTUFBTSxFQUFFO0FBQzVCLFdBQUssR0FBRyxJQUFJLEdBQUcsS0FBSyxDQUFDO0tBQ3RCO0FBQ0QsV0FBTyxLQUFLLENBQUM7R0FDZDtDQUNGIiwiZmlsZSI6InNyYy91dGlscy9mb3JtYXQuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEZvcm1hdHRpbmcgaGVscGVycyBmdW5jdGlvbnMuXG4gKi9cbmV4cG9ydCBkZWZhdWx0IHtcbiAgLyoqXG4gICAqIEFkZCBhIGBzaWduYCB0byB0aGUgbGVmdCBvZiBhIGdpdmVuIGBpbnB1dGAgdG8gbWF0Y2ggYGxlbmd0aGBcbiAgICpcbiAgICogQHBhcmFtIHtTdHJpbmd9IGlucHV0IC0gVGhlIHN0cmluZyB0byBmb3JtYXQuXG4gICAqIEBwYXJhbSB7U3RyaW5nfSBzaWduIC0gVGhlIGNoYXJhY3RlciB0byBhZGQgdG8gdGhlIGxlZnQuXG4gICAqIEBwYXJhbSB7TnVtYmVyfSBsZW5ndGggLSBUaGUgbGVuZ3RoIG9mIHRoZSBvdXRwdXQgc3RyaW5nLlxuICAgKi9cbiAgcGFkTGVmdChpbnB1dCwgc2lnbiwgbGVuZ3RoKSB7XG4gICAgaW5wdXQgKz0gJyc7XG4gICAgd2hpbGUgKGlucHV0Lmxlbmd0aCA8IGxlbmd0aCkge1xuICAgICAgaW5wdXQgPSBzaWduICsgaW5wdXQ7XG4gICAgfVxuICAgIHJldHVybiBpbnB1dDtcbiAgfVxufTtcbiJdfQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZvcm1hdC5qcyJdLCJuYW1lcyI6WyJwYWRMZWZ0IiwiaW5wdXQiLCJzaWduIiwibGVuZ3RoIl0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFDQTs7Ozs7OztBQU9PLElBQU1BLDRCQUFVLFNBQVZBLE9BQVUsQ0FBQ0MsS0FBRCxFQUFRQyxJQUFSLEVBQWNDLE1BQWQsRUFBeUI7QUFDOUNGLFdBQVMsRUFBVCxDQUQ4QyxDQUNqQzs7QUFFYixTQUFPQSxNQUFNRSxNQUFOLEdBQWVBLE1BQXRCO0FBQ0VGLFlBQVFDLE9BQU9ELEtBQWY7QUFERixHQUdBLE9BQU9BLEtBQVA7QUFDRCxDQVBNIiwiZmlsZSI6ImZvcm1hdC5qcyIsInNvdXJjZXNDb250ZW50IjpbIlxuLyoqXG4gKiBBZGQgYHNpZ25gIHRvIHRoZSBsZWZ0IG9mIGEgZ2l2ZW4gYGlucHV0YCB1bnRpbCBpdCBtYXRjaGVzIG1hdGNoIGBsZW5ndGhgXG4gKlxuICogQHBhcmFtIHtTdHJpbmd9IGlucHV0IC0gU3RyaW5nIHRvIGZvcm1hdFxuICogQHBhcmFtIHtTdHJpbmd9IHNpZ24gLSBDaGFyYWN0ZXIgdG8gYWRkIHRvIHRoZSBsZWZ0XG4gKiBAcGFyYW0ge051bWJlcn0gbGVuZ3RoIC0gTGVuZ3RoIG9mIHRoZSBvdXRwdXQgc3RyaW5nXG4gKi9cbmV4cG9ydCBjb25zdCBwYWRMZWZ0ID0gKGlucHV0LCBzaWduLCBsZW5ndGgpID0+IHtcbiAgaW5wdXQgKz0gJyc7IC8vIG1ha2Ugc3VyZSB3ZSBkZWFsIHdpdGggYSBzdHJpbmdcblxuICB3aGlsZSAoaW5wdXQubGVuZ3RoIDwgbGVuZ3RoKVxuICAgIGlucHV0ID0gc2lnbiArIGlucHV0O1xuXG4gIHJldHVybiBpbnB1dDtcbn1cbiJdfQ==

@@ -1,43 +1,54 @@
 'use strict';
 
-var _get = require('babel-runtime/helpers/get')['default'];
-
-var _inherits = require('babel-runtime/helpers/inherits')['default'];
-
-var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
-
-var _Object$assign = require('babel-runtime/core-js/object/assign')['default'];
-
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
-
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _coreLayer = require('../core/layer');
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
-var _coreLayer2 = _interopRequireDefault(_coreLayer);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _shapesTracePath = require('../shapes/trace-path');
+var _assign = require('babel-runtime/core-js/object/assign');
 
-var _shapesTracePath2 = _interopRequireDefault(_shapesTracePath);
+var _assign2 = _interopRequireDefault(_assign);
 
-var _shapesTraceDots = require('../shapes/trace-dots');
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
-var _shapesTraceDots2 = _interopRequireDefault(_shapesTraceDots);
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _behaviorsTraceBehavior = require('../behaviors/trace-behavior');
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
 
-var _behaviorsTraceBehavior2 = _interopRequireDefault(_behaviorsTraceBehavior);
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _layer = require('../core/layer');
+
+var _layer2 = _interopRequireDefault(_layer);
+
+var _tracePath = require('../shapes/trace-path');
+
+var _tracePath2 = _interopRequireDefault(_tracePath);
+
+var _traceDots = require('../shapes/trace-dots');
+
+var _traceDots2 = _interopRequireDefault(_traceDots);
+
+var _traceBehavior = require('../behaviors/trace-behavior');
+
+var _traceBehavior2 = _interopRequireDefault(_traceBehavior);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * Helper to create a trace layer.
  *
  * [example usage](./examples/layer-trace.html)
  */
-
-var TraceLayer = (function (_Layer) {
-  _inherits(TraceLayer, _Layer);
+var TraceLayer = function (_Layer) {
+  (0, _inherits3.default)(TraceLayer, _Layer);
 
   /**
    * @param {Array} data - The data to render.
@@ -45,15 +56,14 @@ var TraceLayer = (function (_Layer) {
    * @param {Object} accessors - The accessors to configure the mapping
    *    between shapes and data.
    */
-
   function TraceLayer(data) {
-    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-    var accessors = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var accessors = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    (0, _classCallCheck3.default)(this, TraceLayer);
 
-    _classCallCheck(this, TraceLayer);
+    options = (0, _assign2.default)({ displayDots: true }, options);
 
-    options = _Object$assign({ displayDots: true }, options);
-    _get(Object.getPrototypeOf(TraceLayer.prototype), 'constructor', this).call(this, options.displayDots ? 'collection' : 'entity', data, options);
+    var _this = (0, _possibleConstructorReturn3.default)(this, (TraceLayer.__proto__ || (0, _getPrototypeOf2.default)(TraceLayer)).call(this, options.displayDots ? 'collection' : 'entity', data, options));
 
     var shapeOptions = {};
     if (options.meanColor !== undefined) {
@@ -67,18 +77,18 @@ var TraceLayer = (function (_Layer) {
     }
 
     if (options.displayDots) {
-      this.configureCommonShape(_shapesTracePath2['default'], accessors, shapeOptions);
-      this.configureShape(_shapesTraceDots2['default'], accessors, shapeOptions);
+      _this.configureCommonShape(_tracePath2.default, accessors, shapeOptions);
+      _this.configureShape(_traceDots2.default, accessors, shapeOptions);
     } else {
-      this.configureShape(_shapesTracePath2['default'], accessors, shapeOptions);
+      _this.configureShape(_tracePath2.default, accessors, shapeOptions);
     }
 
-    this.setBehavior(new _behaviorsTraceBehavior2['default']());
+    _this.setBehavior(new _traceBehavior2.default());
+    return _this;
   }
 
   return TraceLayer;
-})(_coreLayer2['default']);
+}(_layer2.default);
 
-exports['default'] = TraceLayer;
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9oZWxwZXJzL3RyYWNlLWxheWVyLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7eUJBQWtCLGVBQWU7Ozs7K0JBQ1gsc0JBQXNCOzs7OytCQUN0QixzQkFBc0I7Ozs7c0NBQ2xCLDZCQUE2Qjs7Ozs7Ozs7OztJQVFsQyxVQUFVO1lBQVYsVUFBVTs7Ozs7Ozs7O0FBT2xCLFdBUFEsVUFBVSxDQU9qQixJQUFJLEVBQWdDO1FBQTlCLE9BQU8seURBQUcsRUFBRTtRQUFFLFNBQVMseURBQUcsRUFBRTs7MEJBUDNCLFVBQVU7O0FBUTNCLFdBQU8sR0FBRyxlQUFjLEVBQUUsV0FBVyxFQUFFLElBQUksRUFBRSxFQUFFLE9BQU8sQ0FBQyxDQUFDO0FBQ3hELCtCQVRpQixVQUFVLDZDQVNyQixPQUFPLENBQUMsV0FBVyxHQUFHLFlBQVksR0FBRyxRQUFRLEVBQUUsSUFBSSxFQUFFLE9BQU8sRUFBRTs7QUFFcEUsUUFBTSxZQUFZLEdBQUcsRUFBRSxDQUFDO0FBQ3hCLFFBQUksT0FBTyxDQUFDLFNBQVMsS0FBSyxTQUFTLEVBQUU7QUFBRSxrQkFBWSxDQUFDLFNBQVMsR0FBRyxPQUFPLENBQUMsU0FBUyxDQUFDO0tBQUU7QUFDcEYsUUFBSSxPQUFPLENBQUMsVUFBVSxLQUFLLFNBQVMsRUFBRTtBQUFFLGtCQUFZLENBQUMsVUFBVSxHQUFHLE9BQU8sQ0FBQyxVQUFVLENBQUM7S0FBRTtBQUN2RixRQUFJLE9BQU8sQ0FBQyxXQUFXLEtBQUssU0FBUyxFQUFFO0FBQUUsa0JBQVksQ0FBQyxXQUFXLEdBQUcsT0FBTyxDQUFDLFdBQVcsQ0FBQztLQUFFOztBQUUxRixRQUFJLE9BQU8sQ0FBQyxXQUFXLEVBQUU7QUFDdkIsVUFBSSxDQUFDLG9CQUFvQiwrQkFBWSxTQUFTLEVBQUUsWUFBWSxDQUFDLENBQUM7QUFDOUQsVUFBSSxDQUFDLGNBQWMsK0JBQVksU0FBUyxFQUFFLFlBQVksQ0FBQyxDQUFDO0tBQ3pELE1BQU07QUFDTCxVQUFJLENBQUMsY0FBYywrQkFBWSxTQUFTLEVBQUUsWUFBWSxDQUFDLENBQUM7S0FDekQ7O0FBRUQsUUFBSSxDQUFDLFdBQVcsQ0FBQyx5Q0FBbUIsQ0FBQyxDQUFDO0dBQ3ZDOztTQXhCa0IsVUFBVTs7O3FCQUFWLFVBQVUiLCJmaWxlIjoic3JjL2hlbHBlcnMvdHJhY2UtbGF5ZXIuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgTGF5ZXIgZnJvbSAnLi4vY29yZS9sYXllcic7XG5pbXBvcnQgVHJhY2VQYXRoIGZyb20gJy4uL3NoYXBlcy90cmFjZS1wYXRoJztcbmltcG9ydCBUcmFjZURvdHMgZnJvbSAnLi4vc2hhcGVzL3RyYWNlLWRvdHMnO1xuaW1wb3J0IFRyYWNlQmVoYXZpb3IgZnJvbSAnLi4vYmVoYXZpb3JzL3RyYWNlLWJlaGF2aW9yJztcblxuXG4vKipcbiAqIEhlbHBlciB0byBjcmVhdGUgYSB0cmFjZSBsYXllci5cbiAqXG4gKiBbZXhhbXBsZSB1c2FnZV0oLi9leGFtcGxlcy9sYXllci10cmFjZS5odG1sKVxuICovXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBUcmFjZUxheWVyIGV4dGVuZHMgTGF5ZXIge1xuICAvKipcbiAgICogQHBhcmFtIHtBcnJheX0gZGF0YSAtIFRoZSBkYXRhIHRvIHJlbmRlci5cbiAgICogQHBhcmFtIHtPYmplY3R9IG9wdGlvbnMgLSBBbiBvYmplY3QgdG8gY29uZmlndXJlIHRoZSBsYXllci5cbiAgICogQHBhcmFtIHtPYmplY3R9IGFjY2Vzc29ycyAtIFRoZSBhY2Nlc3NvcnMgdG8gY29uZmlndXJlIHRoZSBtYXBwaW5nXG4gICAqICAgIGJldHdlZW4gc2hhcGVzIGFuZCBkYXRhLlxuICAgKi9cbiAgY29uc3RydWN0b3IoZGF0YSwgb3B0aW9ucyA9IHt9LCBhY2Nlc3NvcnMgPSB7fSkge1xuICAgIG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgZGlzcGxheURvdHM6IHRydWUgfSwgb3B0aW9ucyk7XG4gICAgc3VwZXIob3B0aW9ucy5kaXNwbGF5RG90cyA/ICdjb2xsZWN0aW9uJyA6ICdlbnRpdHknLCBkYXRhLCBvcHRpb25zKTtcblxuICAgIGNvbnN0IHNoYXBlT3B0aW9ucyA9IHt9O1xuICAgIGlmIChvcHRpb25zLm1lYW5Db2xvciAhPT0gdW5kZWZpbmVkKSB7IHNoYXBlT3B0aW9ucy5tZWFuQ29sb3IgPSBvcHRpb25zLm1lYW5Db2xvcjsgfVxuICAgIGlmIChvcHRpb25zLnJhbmdlQ29sb3IgIT09IHVuZGVmaW5lZCkgeyBzaGFwZU9wdGlvbnMucmFuZ2VDb2xvciA9IG9wdGlvbnMucmFuZ2VDb2xvcjsgfVxuICAgIGlmIChvcHRpb25zLmRpc3BsYXlNZWFuICE9PSB1bmRlZmluZWQpIHsgc2hhcGVPcHRpb25zLmRpc3BsYXlNZWFuID0gb3B0aW9ucy5kaXNwbGF5TWVhbjsgfVxuXG4gICAgaWYgKG9wdGlvbnMuZGlzcGxheURvdHMpIHtcbiAgICAgIHRoaXMuY29uZmlndXJlQ29tbW9uU2hhcGUoVHJhY2VQYXRoLCBhY2Nlc3NvcnMsIHNoYXBlT3B0aW9ucyk7XG4gICAgICB0aGlzLmNvbmZpZ3VyZVNoYXBlKFRyYWNlRG90cywgYWNjZXNzb3JzLCBzaGFwZU9wdGlvbnMpO1xuICAgIH0gZWxzZSB7XG4gICAgICB0aGlzLmNvbmZpZ3VyZVNoYXBlKFRyYWNlUGF0aCwgYWNjZXNzb3JzLCBzaGFwZU9wdGlvbnMpO1xuICAgIH1cblxuICAgIHRoaXMuc2V0QmVoYXZpb3IobmV3IFRyYWNlQmVoYXZpb3IoKSk7XG4gIH1cbn0iXX0=
+exports.default = TraceLayer;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRyYWNlLWxheWVyLmpzIl0sIm5hbWVzIjpbIlRyYWNlTGF5ZXIiLCJkYXRhIiwib3B0aW9ucyIsImFjY2Vzc29ycyIsImRpc3BsYXlEb3RzIiwic2hhcGVPcHRpb25zIiwibWVhbkNvbG9yIiwidW5kZWZpbmVkIiwicmFuZ2VDb2xvciIsImRpc3BsYXlNZWFuIiwiY29uZmlndXJlQ29tbW9uU2hhcGUiLCJjb25maWd1cmVTaGFwZSIsInNldEJlaGF2aW9yIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBOzs7O0FBQ0E7Ozs7QUFDQTs7OztBQUNBOzs7Ozs7QUFHQTs7Ozs7SUFLcUJBLFU7OztBQUNuQjs7Ozs7O0FBTUEsc0JBQVlDLElBQVosRUFBZ0Q7QUFBQSxRQUE5QkMsT0FBOEIsdUVBQXBCLEVBQW9CO0FBQUEsUUFBaEJDLFNBQWdCLHVFQUFKLEVBQUk7QUFBQTs7QUFDOUNELGNBQVUsc0JBQWMsRUFBRUUsYUFBYSxJQUFmLEVBQWQsRUFBcUNGLE9BQXJDLENBQVY7O0FBRDhDLDhJQUV4Q0EsUUFBUUUsV0FBUixHQUFzQixZQUF0QixHQUFxQyxRQUZHLEVBRU9ILElBRlAsRUFFYUMsT0FGYjs7QUFJOUMsUUFBTUcsZUFBZSxFQUFyQjtBQUNBLFFBQUlILFFBQVFJLFNBQVIsS0FBc0JDLFNBQTFCLEVBQXFDO0FBQUVGLG1CQUFhQyxTQUFiLEdBQXlCSixRQUFRSSxTQUFqQztBQUE2QztBQUNwRixRQUFJSixRQUFRTSxVQUFSLEtBQXVCRCxTQUEzQixFQUFzQztBQUFFRixtQkFBYUcsVUFBYixHQUEwQk4sUUFBUU0sVUFBbEM7QUFBK0M7QUFDdkYsUUFBSU4sUUFBUU8sV0FBUixLQUF3QkYsU0FBNUIsRUFBdUM7QUFBRUYsbUJBQWFJLFdBQWIsR0FBMkJQLFFBQVFPLFdBQW5DO0FBQWlEOztBQUUxRixRQUFJUCxRQUFRRSxXQUFaLEVBQXlCO0FBQ3ZCLFlBQUtNLG9CQUFMLHNCQUFxQ1AsU0FBckMsRUFBZ0RFLFlBQWhEO0FBQ0EsWUFBS00sY0FBTCxzQkFBK0JSLFNBQS9CLEVBQTBDRSxZQUExQztBQUNELEtBSEQsTUFHTztBQUNMLFlBQUtNLGNBQUwsc0JBQStCUixTQUEvQixFQUEwQ0UsWUFBMUM7QUFDRDs7QUFFRCxVQUFLTyxXQUFMLENBQWlCLDZCQUFqQjtBQWhCOEM7QUFpQi9DOzs7OztrQkF4QmtCWixVIiwiZmlsZSI6InRyYWNlLWxheWVyLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IExheWVyIGZyb20gJy4uL2NvcmUvbGF5ZXInO1xuaW1wb3J0IFRyYWNlUGF0aCBmcm9tICcuLi9zaGFwZXMvdHJhY2UtcGF0aCc7XG5pbXBvcnQgVHJhY2VEb3RzIGZyb20gJy4uL3NoYXBlcy90cmFjZS1kb3RzJztcbmltcG9ydCBUcmFjZUJlaGF2aW9yIGZyb20gJy4uL2JlaGF2aW9ycy90cmFjZS1iZWhhdmlvcic7XG5cblxuLyoqXG4gKiBIZWxwZXIgdG8gY3JlYXRlIGEgdHJhY2UgbGF5ZXIuXG4gKlxuICogW2V4YW1wbGUgdXNhZ2VdKC4vZXhhbXBsZXMvbGF5ZXItdHJhY2UuaHRtbClcbiAqL1xuZXhwb3J0IGRlZmF1bHQgY2xhc3MgVHJhY2VMYXllciBleHRlbmRzIExheWVyIHtcbiAgLyoqXG4gICAqIEBwYXJhbSB7QXJyYXl9IGRhdGEgLSBUaGUgZGF0YSB0byByZW5kZXIuXG4gICAqIEBwYXJhbSB7T2JqZWN0fSBvcHRpb25zIC0gQW4gb2JqZWN0IHRvIGNvbmZpZ3VyZSB0aGUgbGF5ZXIuXG4gICAqIEBwYXJhbSB7T2JqZWN0fSBhY2Nlc3NvcnMgLSBUaGUgYWNjZXNzb3JzIHRvIGNvbmZpZ3VyZSB0aGUgbWFwcGluZ1xuICAgKiAgICBiZXR3ZWVuIHNoYXBlcyBhbmQgZGF0YS5cbiAgICovXG4gIGNvbnN0cnVjdG9yKGRhdGEsIG9wdGlvbnMgPSB7fSwgYWNjZXNzb3JzID0ge30pIHtcbiAgICBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGRpc3BsYXlEb3RzOiB0cnVlIH0sIG9wdGlvbnMpO1xuICAgIHN1cGVyKG9wdGlvbnMuZGlzcGxheURvdHMgPyAnY29sbGVjdGlvbicgOiAnZW50aXR5JywgZGF0YSwgb3B0aW9ucyk7XG5cbiAgICBjb25zdCBzaGFwZU9wdGlvbnMgPSB7fTtcbiAgICBpZiAob3B0aW9ucy5tZWFuQ29sb3IgIT09IHVuZGVmaW5lZCkgeyBzaGFwZU9wdGlvbnMubWVhbkNvbG9yID0gb3B0aW9ucy5tZWFuQ29sb3I7IH1cbiAgICBpZiAob3B0aW9ucy5yYW5nZUNvbG9yICE9PSB1bmRlZmluZWQpIHsgc2hhcGVPcHRpb25zLnJhbmdlQ29sb3IgPSBvcHRpb25zLnJhbmdlQ29sb3I7IH1cbiAgICBpZiAob3B0aW9ucy5kaXNwbGF5TWVhbiAhPT0gdW5kZWZpbmVkKSB7IHNoYXBlT3B0aW9ucy5kaXNwbGF5TWVhbiA9IG9wdGlvbnMuZGlzcGxheU1lYW47IH1cblxuICAgIGlmIChvcHRpb25zLmRpc3BsYXlEb3RzKSB7XG4gICAgICB0aGlzLmNvbmZpZ3VyZUNvbW1vblNoYXBlKFRyYWNlUGF0aCwgYWNjZXNzb3JzLCBzaGFwZU9wdGlvbnMpO1xuICAgICAgdGhpcy5jb25maWd1cmVTaGFwZShUcmFjZURvdHMsIGFjY2Vzc29ycywgc2hhcGVPcHRpb25zKTtcbiAgICB9IGVsc2Uge1xuICAgICAgdGhpcy5jb25maWd1cmVTaGFwZShUcmFjZVBhdGgsIGFjY2Vzc29ycywgc2hhcGVPcHRpb25zKTtcbiAgICB9XG5cbiAgICB0aGlzLnNldEJlaGF2aW9yKG5ldyBUcmFjZUJlaGF2aW9yKCkpO1xuICB9XG59Il19

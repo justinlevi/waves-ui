@@ -1,58 +1,68 @@
 'use strict';
 
-var _get = require('babel-runtime/helpers/get')['default'];
-
-var _inherits = require('babel-runtime/helpers/inherits')['default'];
-
-var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
-
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
-
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _shapesAnnotatedMarker = require('../shapes/annotated-marker');
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
-var _shapesAnnotatedMarker2 = _interopRequireDefault(_shapesAnnotatedMarker);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _coreLayer = require('../core/layer');
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
-var _coreLayer2 = _interopRequireDefault(_coreLayer);
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _behaviorsMarkerBehavior = require('../behaviors/marker-behavior');
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
 
-var _behaviorsMarkerBehavior2 = _interopRequireDefault(_behaviorsMarkerBehavior);
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _annotatedMarker = require('../shapes/annotated-marker');
+
+var _annotatedMarker2 = _interopRequireDefault(_annotatedMarker);
+
+var _layer = require('../core/layer');
+
+var _layer2 = _interopRequireDefault(_layer);
+
+var _markerBehavior = require('../behaviors/marker-behavior');
+
+var _markerBehavior2 = _interopRequireDefault(_markerBehavior);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * Helper to create a annotated marker layer
  *
  * [example usage](./examples/layer-marker.html)
  */
-
-var AnnotatedMarkerLayer = (function (_Layer) {
-  _inherits(AnnotatedMarkerLayer, _Layer);
+var AnnotatedMarkerLayer = function (_Layer) {
+  (0, _inherits3.default)(AnnotatedMarkerLayer, _Layer);
 
   /**
    * @param {Array} data - The data to render.
    * @param {Object} options - An object to configure the layer.
    * @todo - Add accessors and options for the shape.
    */
-
   function AnnotatedMarkerLayer(data) {
-    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    (0, _classCallCheck3.default)(this, AnnotatedMarkerLayer);
 
-    _classCallCheck(this, AnnotatedMarkerLayer);
+    var _this = (0, _possibleConstructorReturn3.default)(this, (AnnotatedMarkerLayer.__proto__ || (0, _getPrototypeOf2.default)(AnnotatedMarkerLayer)).call(this, 'collection', data, options));
 
-    _get(Object.getPrototypeOf(AnnotatedMarkerLayer.prototype), 'constructor', this).call(this, 'collection', data, options);
+    _this.configureShape(_annotatedMarker2.default, {
+      displayLabels: true
+    });
 
-    this.configureShape(_shapesAnnotatedMarker2['default']);
-    this.setBehavior(new _behaviorsMarkerBehavior2['default']());
+    _this.setBehavior(new _markerBehavior2.default());
+    return _this;
   }
 
   return AnnotatedMarkerLayer;
-})(_coreLayer2['default']);
+}(_layer2.default);
 
-exports['default'] = AnnotatedMarkerLayer;
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9oZWxwZXJzL2Fubm90YXRlZC1tYXJrZXItbGF5ZXIuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7cUNBQTRCLDRCQUE0Qjs7Ozt5QkFDdEMsZUFBZTs7Ozt1Q0FDTiw4QkFBOEI7Ozs7Ozs7Ozs7SUFRcEMsb0JBQW9CO1lBQXBCLG9CQUFvQjs7Ozs7Ozs7QUFNNUIsV0FOUSxvQkFBb0IsQ0FNM0IsSUFBSSxFQUFnQjtRQUFkLE9BQU8seURBQUcsRUFBRTs7MEJBTlgsb0JBQW9COztBQU9yQywrQkFQaUIsb0JBQW9CLDZDQU8vQixZQUFZLEVBQUUsSUFBSSxFQUFFLE9BQU8sRUFBRTs7QUFFbkMsUUFBSSxDQUFDLGNBQWMsb0NBQWlCLENBQUM7QUFDckMsUUFBSSxDQUFDLFdBQVcsQ0FBQywwQ0FBb0IsQ0FBQyxDQUFDO0dBQ3hDOztTQVhrQixvQkFBb0I7OztxQkFBcEIsb0JBQW9CIiwiZmlsZSI6InNyYy9oZWxwZXJzL2Fubm90YXRlZC1tYXJrZXItbGF5ZXIuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgQW5ub3RhdGVkTWFya2VyIGZyb20gJy4uL3NoYXBlcy9hbm5vdGF0ZWQtbWFya2VyJztcbmltcG9ydCBMYXllciBmcm9tICcuLi9jb3JlL2xheWVyJztcbmltcG9ydCBNYXJrZXJCZWhhdmlvciBmcm9tICcuLi9iZWhhdmlvcnMvbWFya2VyLWJlaGF2aW9yJztcblxuXG4vKipcbiAqIEhlbHBlciB0byBjcmVhdGUgYSBhbm5vdGF0ZWQgbWFya2VyIGxheWVyXG4gKlxuICogW2V4YW1wbGUgdXNhZ2VdKC4vZXhhbXBsZXMvbGF5ZXItbWFya2VyLmh0bWwpXG4gKi9cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIEFubm90YXRlZE1hcmtlckxheWVyIGV4dGVuZHMgTGF5ZXIge1xuICAvKipcbiAgICogQHBhcmFtIHtBcnJheX0gZGF0YSAtIFRoZSBkYXRhIHRvIHJlbmRlci5cbiAgICogQHBhcmFtIHtPYmplY3R9IG9wdGlvbnMgLSBBbiBvYmplY3QgdG8gY29uZmlndXJlIHRoZSBsYXllci5cbiAgICogQHRvZG8gLSBBZGQgYWNjZXNzb3JzIGFuZCBvcHRpb25zIGZvciB0aGUgc2hhcGUuXG4gICAqL1xuICBjb25zdHJ1Y3RvcihkYXRhLCBvcHRpb25zID0ge30pIHtcbiAgICBzdXBlcignY29sbGVjdGlvbicsIGRhdGEsIG9wdGlvbnMpO1xuXG4gICAgdGhpcy5jb25maWd1cmVTaGFwZShBbm5vdGF0ZWRNYXJrZXIpO1xuICAgIHRoaXMuc2V0QmVoYXZpb3IobmV3IE1hcmtlckJlaGF2aW9yKCkpO1xuICB9XG59XG4iXX0=
+exports.default = AnnotatedMarkerLayer;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFubm90YXRlZC1tYXJrZXItbGF5ZXIuanMiXSwibmFtZXMiOlsiQW5ub3RhdGVkTWFya2VyTGF5ZXIiLCJkYXRhIiwib3B0aW9ucyIsImNvbmZpZ3VyZVNoYXBlIiwiZGlzcGxheUxhYmVscyIsInNldEJlaGF2aW9yIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7Ozs7QUFDQTs7OztBQUNBOzs7Ozs7QUFHQTs7Ozs7SUFLcUJBLG9COzs7QUFDbkI7Ozs7O0FBS0EsZ0NBQVlDLElBQVosRUFBZ0M7QUFBQSxRQUFkQyxPQUFjLHVFQUFKLEVBQUk7QUFBQTs7QUFBQSxrS0FDeEIsWUFEd0IsRUFDVkQsSUFEVSxFQUNKQyxPQURJOztBQUc5QixVQUFLQyxjQUFMLDRCQUFxQztBQUNuQ0MscUJBQWU7QUFEb0IsS0FBckM7O0FBSUEsVUFBS0MsV0FBTCxDQUFpQiw4QkFBakI7QUFQOEI7QUFRL0I7Ozs7O2tCQWRrQkwsb0IiLCJmaWxlIjoiYW5ub3RhdGVkLW1hcmtlci1sYXllci5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBBbm5vdGF0ZWRNYXJrZXIgZnJvbSAnLi4vc2hhcGVzL2Fubm90YXRlZC1tYXJrZXInO1xuaW1wb3J0IExheWVyIGZyb20gJy4uL2NvcmUvbGF5ZXInO1xuaW1wb3J0IE1hcmtlckJlaGF2aW9yIGZyb20gJy4uL2JlaGF2aW9ycy9tYXJrZXItYmVoYXZpb3InO1xuXG5cbi8qKlxuICogSGVscGVyIHRvIGNyZWF0ZSBhIGFubm90YXRlZCBtYXJrZXIgbGF5ZXJcbiAqXG4gKiBbZXhhbXBsZSB1c2FnZV0oLi9leGFtcGxlcy9sYXllci1tYXJrZXIuaHRtbClcbiAqL1xuZXhwb3J0IGRlZmF1bHQgY2xhc3MgQW5ub3RhdGVkTWFya2VyTGF5ZXIgZXh0ZW5kcyBMYXllciB7XG4gIC8qKlxuICAgKiBAcGFyYW0ge0FycmF5fSBkYXRhIC0gVGhlIGRhdGEgdG8gcmVuZGVyLlxuICAgKiBAcGFyYW0ge09iamVjdH0gb3B0aW9ucyAtIEFuIG9iamVjdCB0byBjb25maWd1cmUgdGhlIGxheWVyLlxuICAgKiBAdG9kbyAtIEFkZCBhY2Nlc3NvcnMgYW5kIG9wdGlvbnMgZm9yIHRoZSBzaGFwZS5cbiAgICovXG4gIGNvbnN0cnVjdG9yKGRhdGEsIG9wdGlvbnMgPSB7fSkge1xuICAgIHN1cGVyKCdjb2xsZWN0aW9uJywgZGF0YSwgb3B0aW9ucyk7XG5cbiAgICB0aGlzLmNvbmZpZ3VyZVNoYXBlKEFubm90YXRlZE1hcmtlciwge1xuICAgICAgZGlzcGxheUxhYmVsczogdHJ1ZSxcbiAgICB9KTtcblxuICAgIHRoaXMuc2V0QmVoYXZpb3IobmV3IE1hcmtlckJlaGF2aW9yKCkpO1xuICB9XG59XG4iXX0=
