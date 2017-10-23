@@ -1,15 +1,6 @@
-# junk files
 .DS_Store
-npm-debug.log
-
-# working folder
 node_modules
-dist
-
-# comment in master branch
-docs
-
-# to check
-package-lock.json
-
-/yarn.lock
+npm-debug.log
+coverage*
+test-*
+doc
